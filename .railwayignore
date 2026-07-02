@@ -1,0 +1,52 @@
+# Railway deployment ignore file
+# Files and directories to exclude from Railway deployments
+
+# Python cache
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+.Python
+
+# Virtual environments
+venv/
+env/
+ENV/
+.venv
+
+# IDE
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+
+# Testing
+tests/
+*.json
+generate_*.py
+
+# Debug artifacts (must NOT ship)
+debug_output/
+
+# Environment files (Railway injects real vars via the dashboard)
+.env
+
+# Documentation
+*.md
+!README.md
+
+# Git
+.git/
+.gitignore
+
+# Logs
+*.log
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Development files
+.env.local
+.env.development

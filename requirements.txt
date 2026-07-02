@@ -1,0 +1,26 @@
+# ── Face-service dependencies (SINGLE MODEL = Buffalo_L / InsightFace ONNX) ───
+# Version RANGES (not hard pins) so a fresh venv installs on Python 3.11–3.14.
+# Railway uses Python 3.11 (runtime.txt); these ranges resolve there too.
+# Tip: Python 3.11 or 3.12 give the most reliable wheels. 3.14 works but is new.
+
+# Core API
+fastapi>=0.115,<0.116
+uvicorn[standard]>=0.32,<0.35
+pydantic>=2.9,<3
+python-multipart>=0.0.9
+
+# Numeric (numpy 2.x is required for Python 3.13/3.14 wheels)
+numpy>=1.26,<3
+
+# Image / classic ML
+opencv-python-headless>=4.10,<5
+pillow>=10.4
+
+# Buffalo_L (ArcFace) recognition + SCRFD detection/alignment + MiniFASNet PAD.
+# NOTE: `insightface` builds native code at install time (needs a C/C++ toolchain).
+# The buffalo_l model pack is BUNDLED in-repo (insightface_home/) so there is NO
+# ~330 MB runtime download — see services/insightface_aligner.py (INSIGHTFACE_HOME).
+onnxruntime>=1.19
+insightface>=0.7.3
+onnx>=1.16
+scikit-image>=0.24
